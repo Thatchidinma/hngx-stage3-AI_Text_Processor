@@ -12,7 +12,7 @@ export default function Home() {
   const {text, language, setLanguage,percentage, setPercentage,translation, setTranslation, translationErr} = usetextContext()
 
   return (
-    <main className='relative border w-full flex flex-col'>
+    <main className='relative w-full flex flex-col'>
       <Header/>
       {!text && <div className="max-w-[900px] mx-auto mt-20">
         <Greet/>
@@ -22,17 +22,18 @@ export default function Home() {
         <p className="p-4 border-l-8 rounded-3xl rounded-br max-w-[80%] lg:max-w-[50%] border ml-auto "> {text}</p>
         <p className="p-4 border-r-8 rounded-3xl rounded-bl max-w-[80%] lg:max-w-[50%] border">The above text is {percentage} {language}</p>
         <TranslateButton/>
-        <div className="p-4 border-l-8 rounded-3xl rounded-br max-w-[80%] lg:max-w-[50%] border ml-auto ">
+        <button className="w-fit p-4 border-2 border-[#262b47] group hover:bg-[#262b47] hover:text-white rounded-2xl overflow-hidden flex items-center gap-4 cursor-pointer">Summarize</button>
+        {translation && <div className="p-4 border-l-8 rounded-3xl rounded-br max-w-[80%] lg:max-w-[50%] border ml-auto ">
           {translation &&
           <>
           <p className="font-bold">Translation:</p>
           <p className="">{translation}</p>
           </>}
-          {
+        </div>}
+        {
             translationErr && 
             <p className="italic text-red-600 ">Sorry, unfortunately this translation can't be performed at this time </p>
           }
-        </div>
         </div>}
       </div>
       <TextInput/>

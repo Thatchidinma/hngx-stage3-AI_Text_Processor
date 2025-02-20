@@ -1,12 +1,40 @@
+import { usetextContext } from '@/context/TextInputContext';
 import ArrDown from '@/icons/ArrDown'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { initializeLanguageTranslator } from "@/lib/actions/translate";
+
 
 const TranslateButton = () => {
+  const [selected, setSelected] = useState("");
+  const { text, language,translateTo, setTranslateTo, translation, setTranslation,setTranslationErr} = usetextContext()
+
+  useEffect(()=>{
+    setTranslateTo(selected)
+  },[selected])
+
+  useEffect(() => {
+    if (translateTo) {
+      translateLanguage();
+    }
+  }, [translateTo]);
+
+
+
+  async function translateLanguage() {
+    console.log('i am clicked--------------------')
+    const translate = await initializeLanguageTranslator(language, translateTo, text)
+    console.log(language, '--------',translateTo, '------------', text )
+     setTranslation(translate.translatedText)
+     setTranslationErr(translate.ErrorMsg)
+ }
+
+
+
   return (
     <div className='flex gap-2 items-center w-fit'>
-        Translate to:
         <div className='w-fit p-4 border-2 border-[#262b47] group hover:bg-[#262b47] hover:text-white rounded-2xl overflow-hidden flex items-center gap-4 cursor-pointer'>
-        <select name="" id="" className='appearance-none focus:outline-none group-hover:bg-[#262b47] cursor-pointer'>
+        <select  onChange={(e) => {setSelected(e.target.value)}} name="" id="" className='appearance-none focus:outline-none group-hover:bg-[#262b47] cursor-pointer'>
+        <option value="">Translate</option>
         <option value="en" >English</option>
         <option value="pt">Portuguese</option>
         <option value="es">Spanish</option>

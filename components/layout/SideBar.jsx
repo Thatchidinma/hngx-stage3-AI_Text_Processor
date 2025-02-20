@@ -17,7 +17,7 @@ const SideBar = () => {
                 <Link href='/'>
                     <div className="border-2 bg-[#0A0C19] border-[#282934] p-4 rounded-2xl flex justify-between items-center gap-20 hover:bg-[#262b47]">
                         <PlusIcon/>
-                        <p className='text-nowrap'>New Text</p>
+                        <p className='text-nowrap'>Home</p>
                     </div>
                 </Link> 
 
@@ -31,7 +31,7 @@ const SideBar = () => {
                 <Link href={'https://github.com/Thatchidinma/hngx-stage3-AI_Text_Processor'}> 
                 <div className="border-2 bg-[#0A0C19] border-[#282934] w-full p-4 rounded-2xl flex justify-between items-center gap-2 hover:bg-[#262b47]">
                     <ArrDownIcon/>
-                    <p>Veiw on Github</p>
+                    <p>View on Github</p>
                 </div>
                 </Link>
             </div>}

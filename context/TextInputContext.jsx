@@ -17,25 +17,21 @@ export const TextContextProvider =({children}) => {
     const [percentage, setPercentage] = useState(0)
     const [translation, setTranslation] = useState('')
     const [translationErr, setTranslationErr] = useState('')
-
+    const [translateTo, setTranslateTo] = useState('')
 
     useEffect(()=>{
         async function fetchlanguage() {
             const detcetion = await initializeLanguageDetector(text)
             setLanguage(detcetion.language)
             setPercentage(detcetion.perc)
-            const translate = await initializeLanguageTranslator(language, 'fr', text)
-            setTranslation(translate.translatedText)
-            setTranslationErr(translate.ErrorMsg)
-
         }
         fetchlanguage()
 
-      },[])
+      })
 
   
     return (
-      <textContext.Provider value={{ text, setText,language, setLanguage,percentage, setPercentage, translation, setTranslation,translationErr}}>
+      <textContext.Provider value={{ text, setText,language, setLanguage,percentage, setPercentage, translation, setTranslation,translationErr, setTranslationErr, translateTo, setTranslateTo}}>
         {children}
       </textContext.Provider>
     );

@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import SideBar from "@/components/layout/SideBar";
+import { TextContextProvider } from "@/context/TextInputContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,9 +22,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased p-4 flex h-svh`}
       >
+        <TextContextProvider>
+        <SideBar/>
         {children}
+        </TextContextProvider>
       </body>
     </html>
   );

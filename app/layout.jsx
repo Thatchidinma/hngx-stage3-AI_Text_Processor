@@ -24,6 +24,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Head>
       <meta http-equiv="origin-trial" content="AuyrbOsdceRniYIdkxD8e9dicnhvTOpFUjA22Evir52BvBiEmH1SQcoJokZiJW8/MgbFCyNhBPHPGxbXO4HaygUAAAB7eyJvcmlnaW4iOiJodHRwczovL2FpLXRleHQtcHJvY2Vzc29yLW9uZS52ZXJjZWwuYXBwOjQ0MyIsImZlYXR1cmUiOiJUcmFuc2xhdGlvbkFQSSIsImV4cGlyeSI6MTc1MzE0MjQwMCwiaXNTdWJkb21haW4iOnRydWV9" />
+      <meta http-equiv="origin-trial" content="AlOe/fv+QlmtJoE34GRgJxxVszSM5ih1I5xE+5vwuIkahIwwjZ8Wc/KXu3ZWWvbzaWvEzSChKI31arWpB/qOFAwAAACBeyJvcmlnaW4iOiJodHRwczovL2FpLXRleHQtcHJvY2Vzc29yLW9uZS52ZXJjZWwuYXBwOjQ0MyIsImZlYXR1cmUiOiJMYW5ndWFnZURldGVjdGlvbkFQSSIsImV4cGlyeSI6MTc0OTU5OTk5OSwiaXNTdWJkb21haW4iOnRydWV9" />
+      {/* <meta http-equiv="origin-trial" content="AuyrbOsdceRniYIdkxD8e9dicnhvTOpFUjA22Evir52BvBiEmH1SQcoJokZiJW8/MgbFCyNhBPHPGxbXO4HaygUAAAB7eyJvcmlnaW4iOiJodHRwczovL2FpLXRleHQtcHJvY2Vzc29yLW9uZS52ZXJjZWwuYXBwOjQ0MyIsImZlYXR1cmUiOiJUcmFuc2xhdGlvbkFQSSIsImV4cGlyeSI6MTc1MzE0MjQwMCwiaXNTdWJkb21haW4iOnRydWV9" /> */}
       </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased p-4 flex h-svh`}

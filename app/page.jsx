@@ -25,7 +25,7 @@ export default function Home() {
         <div className="p-4 border-l-8 rounded-3xl rounded-br max-w-[80%] lg:max-w-[50%] border ml-auto ">
           {translation &&
           <>
-          <p className="">Translation:</p>
+          <p className="font-bold">Translation:</p>
           <p className="">{translation}</p>
           </>}
           {

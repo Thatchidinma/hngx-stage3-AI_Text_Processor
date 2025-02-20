@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SideBar from "@/components/layout/SideBar";
 import { TextContextProvider } from "@/context/TextInputContext";
+import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,6 +22,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+      <meta http-equiv="origin-trial" content="AuyrbOsdceRniYIdkxD8e9dicnhvTOpFUjA22Evir52BvBiEmH1SQcoJokZiJW8/MgbFCyNhBPHPGxbXO4HaygUAAAB7eyJvcmlnaW4iOiJodHRwczovL2FpLXRleHQtcHJvY2Vzc29yLW9uZS52ZXJjZWwuYXBwOjQ0MyIsImZlYXR1cmUiOiJUcmFuc2xhdGlvbkFQSSIsImV4cGlyeSI6MTc1MzE0MjQwMCwiaXNTdWJkb21haW4iOnRydWV9" />
+      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased p-4 flex h-svh`}
       >

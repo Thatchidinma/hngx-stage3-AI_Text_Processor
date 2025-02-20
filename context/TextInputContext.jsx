@@ -31,7 +31,7 @@ export const TextContextProvider =({children}) => {
         }
         fetchlanguage()
 
-      })
+      },[])
 
   
     return (

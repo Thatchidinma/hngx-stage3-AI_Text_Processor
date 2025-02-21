@@ -19,6 +19,8 @@ export const TextContextProvider =({children}) => {
     const [translationErr, setTranslationErr] = useState('')
     const [translateTo, setTranslateTo] = useState('')
     const [notSupported, setNotSupported] = useState(null)
+    const [loadingTrans, setLoadingTrans] = useState(false)
+
 
     useEffect(()=>{
         async function fetchlanguage() {
@@ -29,7 +31,7 @@ export const TextContextProvider =({children}) => {
         }
         fetchlanguage()
 
-      })
+      },[text])
 
       const values = {
         text,
@@ -45,7 +47,9 @@ export const TextContextProvider =({children}) => {
         translateTo, 
         setTranslateTo, 
         notSupported, 
-        setNotSupported
+        setNotSupported,
+        loadingTrans,
+        setLoadingTrans
       }
 
   

@@ -6,24 +6,29 @@ import { initializeLanguageTranslator } from "@/lib/actions/translate";
 
 const TranslateButton = () => {
   const [selected, setSelected] = useState("");
-  const { text, language,translateTo, setTranslateTo, translation, setTranslation,setTranslationErr} = usetextContext()
+  const { text, language,translateTo, setTranslateTo, setTranslation,setTranslationErr, loadingTrans, setLoadingTrans} = usetextContext()
 
   useEffect(()=>{
+    setLoadingTrans(true)
+    console.log(loadingTrans, '-------------before')
     setTranslateTo(selected)
   },[selected])
 
   useEffect(() => {
+
     if (translateTo) {
       translateLanguage();
+      setLoadingTrans(false)
+      console.log(loadingTrans, '-------------after')
     }
-  }, [translateTo]);
 
+  }, [translateTo]);
 
 
   async function translateLanguage() {
     console.log('i am clicked--------------------')
-    const translate = await initializeLanguageTranslator(language, translateTo, text)
     console.log(language, '--------',translateTo, '------------', text )
+    const translate = await initializeLanguageTranslator(language, translateTo, text)
      setTranslation(translate.translatedText)
      setTranslationErr(translate.ErrorMsg)
  }

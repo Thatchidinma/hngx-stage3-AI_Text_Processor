@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 
 const TextInput = () => {
   const [getText, setGetText ] = useState('')
-  const {text, setText} = usetextContext()
+  const {text, setText,setTranslation} = usetextContext()
 
   useEffect(()=>{
 
@@ -12,6 +12,7 @@ const TextInput = () => {
   const submitText =(e)=>{
     setText(getText)
     setGetText('')
+    setTranslation('')
     e.preventDefault();
   }
 

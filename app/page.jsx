@@ -37,7 +37,7 @@ export default function Home() {
       </div> }
 
       <div className="overflow-y-scroll mb-48 md:mx-5 lg:mx-24">
-      {text.length !== 0 && 
+      {text.length > 0 && !notSupported ?
         (
           text.map((msg, index) => (
             <div key={index} ref={index === text.length - 1 ? lastMessageRef : null} className="flex flex-col gap-5 mt-5">
@@ -47,16 +47,11 @@ export default function Home() {
                 {msg.text}
               </p>
     
-              {msg.language && !notSupported && (
+              {msg.language && (
                 <p className="p-4 border-r-8 rounded-3xl rounded-bl max-w-[80%] lg:max-w-[50%] border mr-auto">
                   Detected {msg.percentage} {msg.language}
                 </p>
               )}
-
-              {notSupported && (
-                <p className="italic text-red-600">{notSupported}</p>
-              )}
-
 
               {msg.translation && (
                 <div className="p-4 border-l-8 rounded-3xl max-w-[80%] lg:max-w-[50%] border ml-auto">
@@ -72,7 +67,9 @@ export default function Home() {
               )}
             </div>
           ))
-  )
+         )
+         :  <p className="italic text-red-600">{notSupported}</p>
+
         }
       </div>
       <TextInput/>

@@ -6,7 +6,7 @@ import { usetextContext } from "@/context/TextInputContext";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
-  const {text, translateTo} = usetextContext()
+  const {text, translateTo, notSupported, setNotSupported} = usetextContext()
   const [beenHere, setBeenHere] = useState(null);
   const lastMessageRef = useRef(null);
 
@@ -47,14 +47,14 @@ export default function Home() {
                 {msg.text}
               </p>
     
-              {msg.language && !msg.notSupported && (
+              {msg.language && !notSupported && (
                 <p className="p-4 border-r-8 rounded-3xl rounded-bl max-w-[80%] lg:max-w-[50%] border mr-auto">
                   Detected {msg.percentage} {msg.language}
                 </p>
               )}
 
-              {msg.notSupported && (
-                <p className="italic text-red-600">{msg.notSupported}</p>
+              {notSupported && (
+                <p className="italic text-red-600">{notSupported}</p>
               )}
 
 

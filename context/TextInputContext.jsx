@@ -13,6 +13,7 @@ export const textContext = createContext(null)
 export const TextContextProvider =({children}) => {
   const [text, setText] = useState([]);
   const [translateTo, setTranslateTo] = useState('')
+  const [notSupported, setNotSupported] = useState(null)
 
 
     useEffect(()=>{
@@ -32,7 +33,7 @@ export const TextContextProvider =({children}) => {
               };
               return updatedMessages;
             });
-      
+            setNotSupported(detection.notSupported)
           }
         }
         fetchlanguage()
@@ -44,6 +45,8 @@ export const TextContextProvider =({children}) => {
         setText, 
         translateTo, 
         setTranslateTo,
+        notSupported,
+        setNotSupported
       }
 
   

@@ -1,6 +1,7 @@
 'use client'
 import ArrDownIcon from '@/icons/ArrDownCircled'
 import HamburgerIcon from '@/icons/Hamburger'
+import MenuIcon from '@/icons/Menu'
 import PlusIcon from '@/icons/Plus'
 import Link from 'next/link'
 import React, { useState } from 'react'
@@ -16,21 +17,21 @@ const SideBar = () => {
             <div className="mt-5 grid gap-2">
                 <Link href='/'>
                     <div className="border-2 bg-[#0A0C19] border-[#282934] p-4 rounded-2xl flex justify-between items-center gap-20 hover:bg-[#262b47]">
-                        <PlusIcon/>
+                        <MenuIcon/>
                         <p className='text-nowrap'>Home</p>
                     </div>
                 </Link> 
 
                 <Link href='/About'>
                     <div className="border-2 bg-[#0A0C19] border-[#282934] p-4 rounded-2xl flex justify-between items-center gap-20 hover:bg-[#262b47]">
-                        <PlusIcon/>
+                        <MenuIcon/>
                         <p className='text-nowrap'>About Text Processor</p>
                     </div>
                 </Link> 
 
                 <Link href={'https://github.com/Thatchidinma/hngx-stage3-AI_Text_Processor'}> 
                 <div className="border-2 bg-[#0A0C19] border-[#282934] w-full p-4 rounded-2xl flex justify-between items-center gap-2 hover:bg-[#262b47]">
-                    <ArrDownIcon/>
+                    <MenuIcon/>
                     <p>View on Github</p>
                 </div>
                 </Link>

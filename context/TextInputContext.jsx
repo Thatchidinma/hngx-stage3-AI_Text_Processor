@@ -6,28 +6,34 @@ import {
     useState,
   } from "react";
   import {initializeLanguageDetector} from '@/lib/actions/detectLang'
-import { initializeLanguageTranslator } from "@/lib/actions/translate";
 
 
 export const textContext = createContext(null)
 
 export const TextContextProvider =({children}) => {
-    const [text, setText] = useState(null);
-    const [language, setLanguage] = useState('')
-    const [percentage, setPercentage] = useState(0)
-    const [translation, setTranslation] = useState('')
-    const [translationErr, setTranslationErr] = useState('')
-    const [translateTo, setTranslateTo] = useState('')
-    const [notSupported, setNotSupported] = useState(null)
-    const [loadingTrans, setLoadingTrans] = useState(false)
+  const [text, setText] = useState([]);
+  const [translateTo, setTranslateTo] = useState('')
 
 
     useEffect(()=>{
         async function fetchlanguage() {
-            const detcetion = await initializeLanguageDetector(text)
-            setLanguage(detcetion.language)
-            setPercentage(detcetion.perc)
-            setNotSupported(detcetion.notSupported)
+          if (text.length === 0) return;
+          const lastMessageIndex = text.length - 1;
+          const lastMessage = text[lastMessageIndex];
+          if (!lastMessage.language) {
+            const detection = await initializeLanguageDetector(lastMessage.text);
+            setText((prev) => {
+              const updatedMessages = [...prev];
+              updatedMessages[lastMessageIndex] = {
+                ...updatedMessages[lastMessageIndex],
+                language: detection.language,
+                percentage: detection.perc,
+                notSupported: detection.notSupported
+              };
+              return updatedMessages;
+            });
+      
+          }
         }
         fetchlanguage()
 
@@ -35,21 +41,9 @@ export const TextContextProvider =({children}) => {
 
       const values = {
         text,
-        setText,
-        language, 
-        setLanguage,
-        percentage, 
-        setPercentage, 
-        translation, 
-        setTranslation,
-        translationErr, 
-        setTranslationErr, 
+        setText, 
         translateTo, 
-        setTranslateTo, 
-        notSupported, 
-        setNotSupported,
-        loadingTrans,
-        setLoadingTrans
+        setTranslateTo,
       }
 
   

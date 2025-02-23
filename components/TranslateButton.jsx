@@ -48,8 +48,8 @@ const TranslateButton = ({className}) => {
   return (
     <div className={`flex gap-2 items-center w-fit ${className}`}>
         <div className='w-fit p-4 border-2 border-[#262b47] group hover:bg-[#262b47] hover:text-white rounded-2xl overflow-hidden flex items-center gap-4 cursor-pointer'>
-        <select value={'Translate'} onChange={(e) => {setSelected(e.target.value)}} name="" id="" className='appearance-none focus:outline-none group-hover:bg-[#262b47] cursor-pointer w-fit'>
-        <option disabled value="Translate">Translate</option>
+        <select onChange={(e) => {setSelected(e.target.value)}} name="" id="" className='appearance-none focus:outline-none group-hover:bg-[#262b47] cursor-pointer w-fit'>
+        <option >Translate</option>
         <option value="en" >English(en)</option>
         <option value="pt">Portuguese(pt)</option>
         <option value="es">Spanish(es)</option>

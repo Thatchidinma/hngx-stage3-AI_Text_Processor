@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import TranslateButton from './TranslateButton'
 
 const TextInput = () => {
-  const [getText, setGetText ] = useState('')
+  const [getText, setGetText, notSupported] = useState('')
   const {text, setText} = usetextContext()
 
   const submitText =(e)=>{
@@ -29,9 +29,10 @@ const TextInput = () => {
 
   return (
     <div className='absolute bottom-10 w-full'>
-      {text.length > 0 && 
+      {text.length > 0 && !notSupported &&
+
       <div className='flex justify-self-end md:mr-5 lg:mr-24 gap-5'>
-      <TranslateButton className=''/>
+      <TranslateButton/>
       <button className="w-fit p-4 border-2 border-[#262b47] group hover:bg-[#6b76b4] hover:cursor-not-allowed hover:text-white rounded-2xl overflow-hidden flex items-center gap-4 cursor-pointer">Summarize</button>
       </div>
       }

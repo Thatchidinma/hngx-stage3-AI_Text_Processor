@@ -7,18 +7,18 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const {text, translateTo, notSupported, setNotSupported} = usetextContext()
-  const [beenHere, setBeenHere] = useState(null);
+  // const [beenHere, setBeenHere] = useState(null);
   const lastMessageRef = useRef(null);
 
 
-  useEffect(() => {
-      const visited = localStorage.getItem("visited");
-      if (!visited) {
-          setBeenHere(false);
-      } else {
-          setBeenHere(true);
-      }
-  }, []);
+  // useEffect(() => {
+  //     const visited = localStorage.getItem("visited");
+  //     if (!visited) {
+  //         setBeenHere(false);
+  //     } else {
+  //         setBeenHere(true);
+  //     }
+  // }, []);
   
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function Home() {
 
       <Header/>
 
-      {text.length === 0 && beenHere === false && <div className="max-w-[900px] mx-auto mt-20">
+      {text.length === 0  && <div className="max-w-[900px] mx-auto mt-20">
         <Greet/>
       </div> }
 

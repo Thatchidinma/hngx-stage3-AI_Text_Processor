@@ -8,7 +8,7 @@ const TextInput = () => {
   const {text, setText} = usetextContext()
 
   const submitText =(e)=>{
-    localStorage.setItem("visited", true);
+    // localStorage.setItem("visited", true);
 
     setText((prev) => [
       ...prev,

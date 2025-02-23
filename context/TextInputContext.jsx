@@ -25,16 +25,19 @@ export const TextContextProvider =({children}) => {
           if (!lastMessage.language) {
             const detection = await initializeLanguageDetector(lastMessage.text);
             setNotSupported(detection.notSupported)
-            setText((prev) => {
-              const updatedMessages = [...prev];
-              updatedMessages[lastMessageIndex] = {
-                ...updatedMessages[lastMessageIndex],
-                language: detection.language,
-                percentage: detection.perc,
-                notSupported: detection.notSupported
-              };
-              return updatedMessages;
-            });
+            if(!notSupported){
+              setText((prev) => {
+                const updatedMessages = [...prev];
+                updatedMessages[lastMessageIndex] = {
+                  ...updatedMessages[lastMessageIndex],
+                  language: detection.language,
+                  percentage: detection.perc,
+                  notSupported: detection.notSupported
+                };
+                return updatedMessages;
+              });
+            }
+
           }
         }
         fetchlanguage()

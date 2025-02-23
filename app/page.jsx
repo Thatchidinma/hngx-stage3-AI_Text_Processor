@@ -47,7 +47,7 @@ export default function Home() {
                 {msg.text}
               </p>
     
-              {msg.language && (
+              {msg.language && !notSupported && (
                 <p className="p-4 border-r-8 rounded-3xl rounded-bl max-w-[80%] lg:max-w-[50%] border mr-auto">
                   Detected {msg.percentage} {msg.language}
                 </p>

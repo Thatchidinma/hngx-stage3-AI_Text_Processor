@@ -6,7 +6,7 @@ import { usetextContext } from "@/context/TextInputContext";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
-  const {text, translateTo, notSupported, setNotSupported} = usetextContext()
+  const {text, translateTo, notSupported, setNotSupported, newText, setnewText} = usetextContext()
   const [beenHere, setBeenHere] = useState(null);
   const lastMessageRef = useRef(null);
 
@@ -74,10 +74,16 @@ export default function Home() {
   )
         } */}
 
+           <div className="flex flex-col gap-5 mt-5">
+              <p 
+                className="p-4 border-l-8 rounded-3xl rounded-br max-w-[80%] lg:max-w-[50%] border ml-auto "
+              >
+               {newText}
+              </p>
               {notSupported && (
                 <p className="italic text-red-600">{notSupported}</p>
               )}
-    
+          </div>
       </div>
       <TextInput/>
     </main>

@@ -4,23 +4,24 @@ import React, { useState } from 'react'
 import TranslateButton from './TranslateButton'
 
 const TextInput = () => {
-  const [getText, setGetText, notSupported] = useState('')
-  const {text, setText} = usetextContext()
+  const [getText, setGetText] = useState('')
+  const {text, setText,  notSupported, newText, setnewText} = usetextContext()
 
   const submitText =(e)=>{
     localStorage.setItem("visited", true);
 
-    setText((prev) => [
-      ...prev,
-      {
-        text: getText,
-        language: "",
-        percentage: 0,
-        translation: "",
-        translationErr: null,
-        notSupported: null
-      }
-    ])
+    // setText((prev) => [
+    //   ...prev,
+    //   {
+    //     text: getText,
+    //     language: "",
+    //     percentage: 0,
+    //     translation: "",
+    //     translationErr: null,
+    //     notSupported: null
+    //   }
+    // ])
+    setnewText()
     setGetText('')
     e.preventDefault();
   }

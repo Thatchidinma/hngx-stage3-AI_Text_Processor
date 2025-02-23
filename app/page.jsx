@@ -7,18 +7,18 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const {text, translateTo, notSupported, setNotSupported} = usetextContext()
-  // const [beenHere, setBeenHere] = useState(null);
+  const [beenHere, setBeenHere] = useState(null);
   const lastMessageRef = useRef(null);
 
 
-  // useEffect(() => {
-  //     const visited = localStorage.getItem("visited");
-  //     if (!visited) {
-  //         setBeenHere(false);
-  //     } else {
-  //         setBeenHere(true);
-  //     }
-  // }, []);
+  useEffect(() => {
+      const visited = localStorage.getItem("visited");
+      if (!visited) {
+          setBeenHere(false);
+      } else {
+          setBeenHere(true);
+      }
+  }, []);
   
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function Home() {
 
       <Header/>
 
-      {text.length === 0  && <div className="max-w-[900px] mx-auto mt-20">
+      {text.length === 0 && beenHere === false && <div className="max-w-[900px] mx-auto mt-20">
         <Greet/>
       </div> }
 
@@ -47,7 +47,7 @@ export default function Home() {
                 {msg.text}
               </p>
     
-              {msg.language && !notSupported && (
+              {msg.language && (
                 <p className="p-4 border-r-8 rounded-3xl rounded-bl max-w-[80%] lg:max-w-[50%] border mr-auto">
                   Detected {msg.percentage} {msg.language}
                 </p>
@@ -56,7 +56,6 @@ export default function Home() {
               {notSupported && (
                 <p className="italic text-red-600">{notSupported}</p>
               )}
-
 
               {msg.translation && (
                 <div className="p-4 border-l-8 rounded-3xl max-w-[80%] lg:max-w-[50%] border ml-auto">

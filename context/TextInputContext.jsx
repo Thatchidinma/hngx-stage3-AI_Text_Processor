@@ -19,10 +19,11 @@ export const TextContextProvider =({children}) => {
 
     useEffect(()=>{
         async function fetchlanguage() {
+          if (text.length === 0) return;
           const lastMessageIndex = text.length - 1;
           const lastMessage = text[lastMessageIndex];
-      
-            const detection = await initializeLanguageDetector(lastMessage);
+          if (!lastMessage.language) {
+            const detection = await initializeLanguageDetector(lastMessage.text);
             setText((prev) => {
               const updatedMessages = [...prev];
               updatedMessages[lastMessageIndex] = {
@@ -34,7 +35,7 @@ export const TextContextProvider =({children}) => {
               return updatedMessages;
             });
             setNotSupported(detection.notSupported)
-          
+          }
         }
         fetchlanguage()
 

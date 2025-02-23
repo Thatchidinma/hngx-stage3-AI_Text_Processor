@@ -37,7 +37,7 @@ export default function Home() {
       </div> }
 
       <div className="overflow-y-scroll mb-48 md:mx-5 lg:mx-24">
-      {text.length > 0 && 
+      {/* {text.length > 0 && 
         (
           text.map((msg, index) => (
             <div key={index} ref={index === text.length - 1 ? lastMessageRef : null} className="flex flex-col gap-5 mt-5">
@@ -72,7 +72,12 @@ export default function Home() {
             </div>
           ))
   )
-        }
+        } */}
+
+              {notSupported && (
+                <p className="italic text-red-600">{notSupported}</p>
+              )}
+    
       </div>
       <TextInput/>
     </main>

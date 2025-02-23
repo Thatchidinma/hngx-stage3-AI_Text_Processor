@@ -21,7 +21,7 @@ const TextInput = () => {
     //     notSupported: null
     //   }
     // ])
-    setnewText()
+    setnewText(getText)
     setGetText('')
     e.preventDefault();
   }

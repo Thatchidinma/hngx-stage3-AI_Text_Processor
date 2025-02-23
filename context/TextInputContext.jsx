@@ -24,6 +24,7 @@ export const TextContextProvider =({children}) => {
           const lastMessage = text[lastMessageIndex];
           if (!lastMessage.language) {
             const detection = await initializeLanguageDetector(lastMessage.text);
+            setNotSupported(detection.notSupported)
             setText((prev) => {
               const updatedMessages = [...prev];
               updatedMessages[lastMessageIndex] = {
@@ -34,7 +35,6 @@ export const TextContextProvider =({children}) => {
               };
               return updatedMessages;
             });
-            setNotSupported(detection.notSupported)
           }
         }
         fetchlanguage()

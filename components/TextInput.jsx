@@ -10,18 +10,18 @@ const TextInput = () => {
   const submitText =(e)=>{
     localStorage.setItem("visited", true);
 
-    // setText((prev) => [
-    //   ...prev,
-    //   {
-    //     text: getText,
-    //     language: "",
-    //     percentage: 0,
-    //     translation: "",
-    //     translationErr: null,
-    //     notSupported: null
-    //   }
-    // ])
-    setnewText(getText)
+    setText((prev) => [
+      ...prev,
+      {
+        text: getText,
+        language: "",
+        percentage: 0,
+        translation: "",
+        translationErr: null,
+        notSupported: null
+      }
+    ])
+    // setnewText(getText)
     setGetText('')
     e.preventDefault();
   }

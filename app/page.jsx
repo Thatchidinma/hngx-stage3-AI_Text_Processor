@@ -37,8 +37,12 @@ export default function Home() {
       </div> }
 
       <div className="overflow-y-scroll mb-48 md:mx-5 lg:mx-24">
-      {/* {text.length > 0 && 
-        (
+      {text.length > 0 && notSupported ?
+          <div className="flex flex-col gap-5 mt-5">
+            <p className="italic text-red-600 text-center">{notSupported}</p>
+          </div>
+        :
+         (
           text.map((msg, index) => (
             <div key={index} ref={index === text.length - 1 ? lastMessageRef : null} className="flex flex-col gap-5 mt-5">
               <p 
@@ -71,19 +75,8 @@ export default function Home() {
               )}
             </div>
           ))
-  )
-        } */}
-
-           <div className="flex flex-col gap-5 mt-5">
-              <p 
-                className="p-4 border-l-8 rounded-3xl rounded-br max-w-[80%] lg:max-w-[50%] border ml-auto "
-              >
-               {newText}
-              </p>
-              {notSupported && (
-                <p className="italic text-red-600">{notSupported}</p>
-              )}
-          </div>
+        )
+      }
       </div>
       <TextInput/>
     </main>

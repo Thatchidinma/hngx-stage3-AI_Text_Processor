@@ -19,23 +19,23 @@ export const TextContextProvider =({children}) => {
 
     useEffect(()=>{
         async function fetchlanguage() {
-          // if (text.length === 0) return;
-          // const lastMessageIndex = text.length - 1;
-          // const lastMessage = text[lastMessageIndex];
-          // if (!lastMessage.language) {
-            const detection = await initializeLanguageDetector(newText);
-          //   setText((prev) => {
-          //     const updatedMessages = [...prev];
-          //     updatedMessages[lastMessageIndex] = {
-          //       ...updatedMessages[lastMessageIndex],
-          //       language: detection.language,
-          //       percentage: detection.perc,
-          //       notSupported: detection.notSupported
-          //     };
-          //     return updatedMessages;
-          //   });
+          if (text.length === 0) return;
+          const lastMessageIndex = text.length - 1;
+          const lastMessage = text[lastMessageIndex];
+          if (!lastMessage.language) {
+            const detection = await initializeLanguageDetector(lastMessage.text);
+            setText((prev) => {
+              const updatedMessages = [...prev];
+              updatedMessages[lastMessageIndex] = {
+                ...updatedMessages[lastMessageIndex],
+                language: detection.language,
+                percentage: detection.perc,
+                notSupported: detection.notSupported
+              };
+              return updatedMessages;
+            });
             setNotSupported(detection.notSupported)
-          // }
+          }
         }
         fetchlanguage()
 
